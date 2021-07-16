@@ -29,7 +29,7 @@ Id,Name
 ```
 void Main()
 {
-  var result=new CsvHelper().ReadDataFromCsv<Fruit>(path);
+  var result=new CsvHelper().ReadDataFromCsv<Fruit>(FilePath);
 }
 public class Fruit
 {
@@ -37,3 +37,16 @@ public class Fruit
    public string Name { get; set; }
 }
 ```
+## Writing Data
+
+### Example
+```
+void Main()
+{
+    var data = new List<Fruit>();
+    data.Add(new Fruit { Id = 100,Name="Apple"});
+    var result = new CsvHelper().WriteDataToCsv<Fruit>(data);
+    System.IO.File.WriteAllBytes(FilePath, result);
+}
+```
+
