@@ -14,3 +14,26 @@ PM> Install-Package DotnetCsvHelper
 ```
 > dotnet add package DotnetCsvHelper
 ```
+# Documentation
+
+## Reading Data
+
+### Data
+
+```
+Id,Name
+1,Apple
+```
+### Example
+
+```
+void Main()
+{
+  var result=new CsvHelper().ReadDataFromCsv<Fruit>(path);
+}
+public class Fruit
+{
+   public int Id { get; set; }
+   public string Name { get; set; }
+}
+```
